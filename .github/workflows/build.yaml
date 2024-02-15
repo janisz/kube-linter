@@ -205,4 +205,4 @@ jobs:
           args: release --clean
         env:
           COSIGN_PASSWORD: ${{secrets.COSIGN_PASSWORD}}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT }}
