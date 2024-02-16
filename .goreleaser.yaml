@@ -103,6 +103,14 @@ docker_signs:
       - 'sign'
       - '${artifact}'
       - '--yes'
+  - cmd: cosign
+    artifacts: manifests
+    output: true
+    args:
+      - 'sign'
+      - "--key=env://COSIGN_KEY"
+      - '${artifact}'
+      - '--yes'
 
 changelog:
   use: github-native
