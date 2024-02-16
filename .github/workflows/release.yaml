@@ -81,5 +81,6 @@ jobs:
           version: latest
           args: release
         env:
+          KEY: ${{ secrets.COSIGN_KEY }}
           COSIGN_PASSWORD: ${{secrets.COSIGN_PASSWORD}}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

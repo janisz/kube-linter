@@ -93,7 +93,7 @@ signs:
     args:
       - "sign-blob"
       - "--key"
-      - "/tmp/cosign.key"
+      - "env://KEY"
       - "--output-signature=${signature}"
       - "${artifact}"
       - "--yes"
@@ -103,7 +103,7 @@ docker_signs:
   - cmd: cosign
     env:
       - COSIGN_EXPERIMENTAL=1
-    artifacts: manifests
+    artifacts: all
     output: true
     args:
       - 'sign'
@@ -111,12 +111,12 @@ docker_signs:
       - '--yes'
   - id: key
     cmd: cosign
-    artifacts: manifests
+    artifacts: all
     output: true
     args:
       - 'sign'
       - "--key"
-      - "/tmp/cosign.key"
+      - "env://KEY"
       - '${artifact}'
       - '--yes'
 
