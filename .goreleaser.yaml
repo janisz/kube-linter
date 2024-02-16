@@ -94,9 +94,15 @@ signs:
     artifacts: all
 
 docker_signs:
-  - id: keyless
-    artifacts: all
-    args: [ "sign", "--oidc-issuer=https://token.actions.githubusercontent.com", "${artifact}@${digest}", "--yes" ]
+  - cmd: cosign
+    env:
+      - COSIGN_EXPERIMENTAL=1
+    artifacts: manifests
+    output: true
+    args:
+      - 'sign'
+      - '${artifact}'
+      - '--yes'
 
 changelog:
   use: git
