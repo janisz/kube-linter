@@ -105,4 +105,4 @@ docker_signs:
       - '--yes'
 
 changelog:
-  use: git
+  use: github-native
