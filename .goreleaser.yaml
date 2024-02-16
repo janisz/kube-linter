@@ -96,11 +96,11 @@ signs:
 docker_signs:
   - cmd: cosign
     stdin: '{{ .Env.COSIGN_PASSWORD }}'
-    args: [ "sign", "--key=env://COSIGN_KEY", "${artifact}@${digest}", "--yes" ]
+    args: [ "sign", "--key=env://COSIGN_KEY", "${artifact}", "--yes" ]
     artifacts: all
   - id: keyless
     artifacts: all
-    args: [ "sign", "--oidc-issuer=https://token.actions.githubusercontent.com", "${artifact}@${digest}", "--yes" ]
+    args: [ "sign", "--oidc-issuer=https://token.actions.githubusercontent.com", "${artifact}", "--yes" ]
 
 changelog:
   use: github-native
