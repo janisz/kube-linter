@@ -79,6 +79,11 @@ dockers:
       - "--label=org.opencontainers.image.revision={{ .FullCommit }}"
       - "--label=org.opencontainers.image.created={{ .CommitDate }}"
 
+docker_manifests:
+  - name_template: "ghcr.io/janisz/kube-linter:{{ .Tag }}"
+    image_templates:
+      - "ghcr.io/janisz/kube-linter:{{ .Tag }}"
+
 checksum:
   disable: true
 
