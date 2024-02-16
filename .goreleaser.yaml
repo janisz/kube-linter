@@ -92,11 +92,12 @@ signs:
     stdin: "{{ .Env.COSIGN_PASSWORD }}"
     args:
       - "sign-blob"
-      - "--key=env://COSIGN_KEY"
+      - "--key"
+      - "/tmp/cosign.key"
       - "--output-signature=${signature}"
       - "${artifact}"
       - "--yes"
-    artifacts: all
+    artifacts: binary
 
 docker_signs:
   - cmd: cosign
